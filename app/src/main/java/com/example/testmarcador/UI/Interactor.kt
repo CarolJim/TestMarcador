@@ -20,7 +20,7 @@ class Interactor : Contracts.interactor {
         call.enqueue(object : Callback<Deporte> {
             override fun onResponse(call: Call<Deporte>?, response: Response<Deporte>?) {
                 response.toString()
-                //listaContenido.addAll(response!!.body()!!.deporte01)
+                //listaContenido.addAll(response!!.body()!!.deporte01.contenido)
                 presenter.showDataMarker(listaContenido)
             }
             override fun onFailure(call: Call<Deporte>?, t: Throwable?) {
