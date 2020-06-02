@@ -1,4 +1,4 @@
-package com.example.testmarcador.adapter
+package com.example.testmarcador.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,18 +7,23 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.testmarcador.Model.DatosMarcador
+import com.example.testmarcador.POJO.Contenido
 import com.example.testmarcador.R
+import com.example.testmarcador.UI.Contracts
+import com.squareup.picasso.Picasso
 
 
 class MarcadorAdapter : RecyclerView.Adapter<MarcadorAdapter.ViewHolder>() {
 
-    var datosMarcador: MutableList<DatosMarcador>  = ArrayList()
+    var datosMarcador: MutableList<Contenido>  = ArrayList()
     lateinit var context: Context
+    lateinit var presenter : Contracts.Presenter
 
-    fun MarcadorAdapter(superheros : MutableList<DatosMarcador>, context: Context){
+    fun MarcadorAdapter(supercontenido : MutableList<Contenido>, context: Context, presenter: Contracts.Presenter){
         this.datosMarcador = datosMarcador
         this.context = context
+        this.presenter = presenter
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -44,18 +49,20 @@ class MarcadorAdapter : RecyclerView.Adapter<MarcadorAdapter.ViewHolder>() {
         val segundoEquipo = view.findViewById(R.id.tv_equipo2) as TextView
         val segundoLogo = view.findViewById(R.id.iv_equipo2) as ImageView
 
-
-
-        fun bind(datosMarcador: DatosMarcador, context: Context){
+        fun bind(Contenido: Contenido, context: Context){
             fecha.text = "Viernes 29 Mayo"
-            primerLogo.text = datosMarcador.local.get(0)
-            primerEquipo.text = datosMarcador.local[1]
-            itemView.setOnClickListener(View.OnClickListener { Toast.makeText(context, superhero.superhero, Toast.LENGTH_SHORT).show() })
-            avatar.loadUrl(superhero.photo)
+            Picasso.get().load(Contenido.local.logo) .resize(50, 50) .centerCrop() .into(primerLogo)
+            primerEquipo.text = Contenido.local.titulo
+            primerMarcador.text = Contenido.local.marcador
+            segundoMarcador.text = Contenido.visitante.marcador
+            segundoEquipo.text = Contenido.visitante.titulo
+            Picasso.get().load(Contenido.visitante.logo) .resize(50, 50) .centerCrop() .into(segundoLogo)
+
+
+
+
         }
-        fun ImageView.loadUrl(url: String) {
-            Picasso.with(context).load(url).into(this)
-        }
+
     }
 
 
