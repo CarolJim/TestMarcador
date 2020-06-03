@@ -2,41 +2,36 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="5dp">
 
-    <TextView
-        android:id="@+id/fecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Viernes 29 Mayo"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:background="@color/colorPrimary"/>
 
     <LinearLayout
         android:id="@+id/ll_vista_principal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/fecha">
+        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/ll_primer_equipo"
             android:layout_width="0dp"
+            android:orientation="horizontal"
             android:layout_height="match_parent"
-            android:layout_weight="4">
+            android:layout_weight="1">
 
         <ImageView
             android:id="@+id/iv_equipo"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="50dp"/>
 
         <TextView
             android:id="@+id/tv_equipo"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Barcelona"
+            android:singleLine="true"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"/>
 
@@ -45,8 +40,9 @@
         <LinearLayout
             android:id="@+id/ll_puntos"
             android:layout_width="0dp"
+            android:gravity="center"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <TextView
@@ -79,22 +75,24 @@
             android:id="@+id/ll_segundo_equipo"
             android:layout_width="0dp"
             android:layout_gravity="right"
-            android:layout_weight="4"
+            android:layout_weight="1"
+            android:orientation="horizontal"
             android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/tv_equipo2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Valencia"
-                android:layout_marginLeft="34dp"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="Valencia" />
 
             <ImageView
                 android:id="@+id/iv_equipo2"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="50dp"
-                android:layout_gravity=""
                 android:layout_marginStart="10dp"/>
 
         </LinearLayout>

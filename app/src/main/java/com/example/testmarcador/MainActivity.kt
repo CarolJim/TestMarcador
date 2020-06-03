@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testmarcador.Adapter.MarcadorAdapter
 import com.example.testmarcador.POJO.Contenido
+import com.example.testmarcador.POJO.Deporte01
+import com.example.testmarcador.POJO.Deporte02
 import com.example.testmarcador.UI.Contracts
 import com.example.testmarcador.UI.Interactor
 
@@ -31,11 +33,15 @@ class MainActivity : AppCompatActivity(), Contracts.Presenter {
         interactor.getSuperContenido()
     }
 
-    override fun showDataMarker(listaContenido: ArrayList<Contenido>) {
-        mAdapter.MarcadorAdapter(listaContenido,this,this)
+    override fun showDataMarker(deporte01: Deporte01, deporte02: Deporte02) {
+
+
+        mAdapter.MarcadorAdapter(deporte01.contenido,this,this)
         recyclerView.adapter = mAdapter
 
+
     }
+
 
 
 }

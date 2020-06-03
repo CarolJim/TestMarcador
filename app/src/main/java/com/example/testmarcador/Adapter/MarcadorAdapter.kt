@@ -20,7 +20,7 @@ class MarcadorAdapter : RecyclerView.Adapter<MarcadorAdapter.ViewHolder>() {
     lateinit var presenter : Contracts.Presenter
 
     fun MarcadorAdapter(supercontenido : MutableList<Contenido>, context: Context, presenter: Contracts.Presenter){
-        this.datosMarcador = datosMarcador
+        this.datosMarcador = supercontenido
         this.context = context
         this.presenter = presenter
 
@@ -41,7 +41,6 @@ class MarcadorAdapter : RecyclerView.Adapter<MarcadorAdapter.ViewHolder>() {
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val fecha = view.findViewById(R.id.fecha) as TextView
         val primerLogo = view.findViewById(R.id.iv_equipo) as ImageView
         val primerEquipo = view.findViewById(R.id.tv_equipo) as TextView
         val primerMarcador = view.findViewById(R.id.tv_num1) as TextView
@@ -50,7 +49,6 @@ class MarcadorAdapter : RecyclerView.Adapter<MarcadorAdapter.ViewHolder>() {
         val segundoLogo = view.findViewById(R.id.iv_equipo2) as ImageView
 
         fun bind(Contenido: Contenido, context: Context){
-            fecha.text = "Viernes 29 Mayo"
             Picasso.get().load(Contenido.local.logo) .resize(50, 50) .centerCrop() .into(primerLogo)
             primerEquipo.text = Contenido.local.titulo
             primerMarcador.text = Contenido.local.marcador

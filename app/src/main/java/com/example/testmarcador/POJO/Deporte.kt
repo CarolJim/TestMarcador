@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 
 data class Deporte (
     @Expose
-    @SerializedName("deporte02")
+    @SerializedName("deporte 02")
     val deporte02: Deporte02,
-    @SerializedName("deporte01")
+    @SerializedName("deporte 01")
     val deporte01: Deporte01
 )
